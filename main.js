@@ -1,6 +1,6 @@
 // Create the prolog sesssion and load mini_prom_week_example.prolog.
 session = pl.create();
-session.consult("database.prolog");
+session.consult("prolog_database.prolog");
 
 // Array of variable bindings, one per answer, returned by prolog query
 var bindings = [];
@@ -50,9 +50,23 @@ function print(answers) {
 }
 
 
+function char_knows_clue() {
+	output_area.innerHTML = "";
+	var get_all_bindings = function(answers) {
+		console.log(answers);
+		print(answers);	
+	}
+
+	session.query("char_knows_clue(Char, Clue).");
+	session.answers(get_callback(get_all_bindings));
+}
+
+
+
 function overhear_conversation() {
 	output_area.innerHTML = "";
 	var get_all_bindings = function(answers) {
+		console.log(answers);
 		print(answers);	
 	}
 

@@ -183,7 +183,7 @@ scene_lead_ins(sadie_and_the_scoop, breaking_into_fullers).
 
 
 :- dynamic(clue/1).
-:- dynamic(clue_desc/2).
+:- dynamic(clue_description/2).
 :- dynamic(clue_known/2).
 :- dynamic(clue_leads_to/2).
 
@@ -197,7 +197,7 @@ clue(she_didnt_learn).
 clue_description(she_didnt_learn, "She didn't learn any of this until the police tore her place apart on Saturday, then came to her work and grilled her about George and where he might have gone. She's been looking for him ever since.").
 clue_known(she_didnt_learn, false).
 clue(as_nobody_important).
-clue_description(as_nobody_important, "As "nobody important, just a garment worker... or I was until the police told the floor manager my fiancé was a murderer" Sadie doesn't have the money to hire one of those private investigators.").
+clue_description(as_nobody_important, "As 'nobody important, just a garment worker... or I was until the police told the floor manager my fiancé was a murderer' Sadie doesn't have the money to hire one of those private investigators.").
 clue_known(as_nobody_important, false).
 clue(vivs_encountered_types).
 clue_description(vivs_encountered_types, "Assess Honesty: Viv's encountered types who try to get their loved ones a trial in the press before it ever goes to court. Most of the time, they know the guy did it. This girl seems utterly convinced of her fiancé's innocence.").
@@ -219,11 +219,11 @@ clue(george_was_on).
 clue_description(george_was_on, "George was on the verge of an amazing breakthrough: a machine that was going to change everything. If asked what the machine does, Sadie falters. George never actually told her; he said she'd have to see for herself.").
 clue_known(george_was_on, false).
 clue(george_didnt_have).
-clue_description(george_didnt_have, "(Core, "Charming Charlie") George didn't have a lot of friends, but he grew up with one of his coworkers — Charlie Fitzpatrick. As kids, they'd planned to travel the world together.").
+clue_description(george_didnt_have, "(Core, 'Charming Charlie') George didn't have a lot of friends, but he grew up with one of his coworkers — Charlie Fitzpatrick. As kids, they'd planned to travel the world together.").
 clue_known(george_didnt_have, false).
 clue_leads_to(george_didnt_have, charming_charlie).
 clue(george_rents_a).
-clue_description(george_rents_a, "Core, "The Peculiar Death of Myron Fink") George rents a one-room apartment in one of the decrepit older buildings up by the Navy Yard. "Just until we have enough money for one of the nicer new apartments." The landlord, Mr. Simpson, won't let her into his room.").
+clue_description(george_rents_a, "Core, 'The Peculiar Death of Myron Fink') George rents a one-room apartment in one of the decrepit older buildings up by the Navy Yard. 'Just until we have enough money for one of the nicer new apartments.' The landlord, Mr. Simpson, won't let her into his room.").
 clue_known(george_rents_a, false).
 clue_leads_to(george_rents_a, the_peculiar_death_of_myron_fink).
 clue(everyone_persecuted_george).
@@ -233,7 +233,7 @@ clue(if_asked_she).
 clue_description(if_asked_she, "If asked, she produces a photograph of a gangling young man with light hair and eyes, but seems reluctant to let it go. He seems to look at something beyond the photographer.").
 clue_known(if_asked_she, false).
 clue(the_police_questioned).
-clue_description(the_police_questioned, "(Alternate, "What the Cops Know") The police questioned her several times, but all she knows is what they told her — someone in George's building got killed. And they insist George did it.").
+clue_description(the_police_questioned, "(Alternate, 'What the Cops Know') The police questioned her several times, but all she knows is what they told her — someone in George's building got killed. And they insist George did it.").
 clue_known(the_police_questioned, false).
 clue_leads_to(the_police_questioned, what_the_cops_know).
 clue(she_always_thought).
@@ -258,22 +258,22 @@ clue(he_locks_up).
 clue_description(he_locks_up, "He locks up around 8 p.m. But several of the boys have keys, including George.").
 clue_known(he_locks_up, false).
 clue(if_she_wants).
-clue_description(if_she_wants, "(Core, "Charming Charlie") If she wants to know more about George, she should talk to Charlie Fitzpatrick. Fuller indicates her on the floor below. Those two grew up together, and are still thick as thieves. It was George who talked him into hiring Charlie.").
+clue_description(if_she_wants, "(Core, 'Charming Charlie') If she wants to know more about George, she should talk to Charlie Fitzpatrick. Fuller indicates her on the floor below. Those two grew up together, and are still thick as thieves. It was George who talked him into hiring Charlie.").
 clue_known(if_she_wants, false).
 clue_leads_to(if_she_wants, charming_charlie).
 clue(had_he_thought).
-clue_description(had_he_thought, "(Alternate, "What the Cops Know") Had he thought of George as a murderer? No, but you know those sensitive types and the police make a good case. Why else would he have run off ?").
+clue_description(had_he_thought, "(Alternate, 'What the Cops Know') Had he thought of George as a murderer? No, but you know those sensitive types and the police make a good case. Why else would he have run off ?").
 clue_known(had_he_thought, false).
 clue_leads_to(had_he_thought, what_the_cops_know).
 clue(george_never_leaves).
-clue_description(george_never_leaves, "(Core "George's Apartment") George never leaves the device here; he must have taken it home to his apartment.").
+clue_description(george_never_leaves, "(Core 'George's Apartment') George never leaves the device here; he must have taken it home to his apartment.").
 clue_known(george_never_leaves, false).
 clue_leads_to(george_never_leaves, georges_apartment).
 clue(he_thinks_the).
 clue_description(he_thinks_the, "He thinks the machine has something to do with radio waves, but doesn't know very much about it. George played his hand close to his chest. [Not entirely false. He's on the hunt for schematics.]").
 clue_known(he_thinks_the, false).
 clue(either_prompted_by).
-clue_description(either_prompted_by, "(Core, "Temple of Nephthys") Either prompted by Viv's questioning him about the dame Char- lie mentions, or remembering just as Viv turns to leave the office, Fuller brings up the other girl who came by on Saturday asking about George. "Pearl something-or-other. She gave me a card. Ah, there it is." From under a heap on his desk, he produces a card bearing the name Madame Isis Neferi, a phone number, a street address in Brooklyn Heights, and Temple of Nephthys. "Madame Isis, that wasn't her, but she begged me to call her if George came back or I got a lead on what she called his ‘miracle machine.' Strange girl."").
+clue_description(either_prompted_by, "(Core, 'Temple of Nephthys') Either prompted by Viv's questioning him about the dame Char- lie mentions, or remembering just as Viv turns to leave the office, Fuller brings up the other girl who came by on Saturday asking about George. 'Pearl something-or-other. She gave me a card. Ah, there it is.' From under a heap on his desk, he produces a card bearing the name Madame Isis Neferi, a phone number, a street address in Brooklyn Heights, and Temple of Nephthys. 'Madame Isis, that wasn't her, but she begged me to call her if George came back or I got a lead on what she called his ‘miracle machine.' Strange girl.'").
 clue_known(either_prompted_by, false).
 clue(george_asked_her).
 clue_description(george_asked_her, "George asked her to stay late the last night anyone saw him, seemed down in the dumps, but Charlie had a date and figured on talking to him Friday morning. George's depressed mood came on suddenly. Just the day before, he had 'the same look he got when he first heard voices on his crystal radio set!' Charlie assumed the glum mug meant he had been on the wrong track after all.").
@@ -304,14 +304,14 @@ clue_description(viv_isnt_the, "(Pipe, 'Temple of Nephthys') Viv isn't the first
 clue_known(viv_isnt_the, false).
 clue_leads_to(viv_isnt_the, temple_of_nephthys).
 clue(the_original_call).
-clue_description(the_original_call, "(Alternate lead-in, "The Peculiar Death of Myron Fink") The original call reported a disturbance rather than a death. Several tenants of the same building reported strange sounds and seeing things.").
+clue_description(the_original_call, "(Alternate lead-in, 'The Peculiar Death of Myron Fink') The original call reported a disturbance rather than a death. Several tenants of the same building reported strange sounds and seeing things.").
 clue_known(the_original_call, false).
 clue_leads_to(the_original_call, the_peculiar_death_of_myron_fink).
 clue(because_nobody_could).
 clue_description(because_nobody_could, "Because nobody could agree on what happened or whether or not the man screamed, the responding beat cop didn't break down the door, but it wouldn't have helped anyway.").
 clue_known(because_nobody_could, false).
 clue(as_far_as).
-clue_description(as_far_as, "(Alternate lead-in, "The Thing in the Morgue") As far as he knows, the body hasn't yet left Bellevue (Bureaucracy: the morgue at Bellevue Hospital, on 29th Street).").
+clue_description(as_far_as, "(Alternate lead-in, 'The Thing in the Morgue') As far as he knows, the body hasn't yet left Bellevue (Bureaucracy: the morgue at Bellevue Hospital, on 29th Street).").
 clue_known(as_far_as, false).
 clue_leads_to(as_far_as, the_thing_in_the_morgue).
 clue(oconnor_describes_the).
@@ -321,23 +321,23 @@ clue(this_preston_fellow).
 clue_description(this_preston_fellow, "This Preston fellow is the natural suspect. From what he heard, they didn't have any leads until Preston flew the coop.").
 clue_known(this_preston_fellow, false).
 clue(he_hasnt_seen).
-clue_description(he_hasnt_seen, "(Alternate lead-in, "The Thing in the Morgue") He hasn't seen the body, and he doesn't plan on it. Several of the policemen on the case show signs of drinking harder than usual. One hasn't slept since: just keeps drinking coffee to stay awake. If Viv is sure she wants to see it, he might be able to pull some strings and get her in.").
+clue_description(he_hasnt_seen, "(Alternate lead-in, 'The Thing in the Morgue') He hasn't seen the body, and he doesn't plan on it. Several of the policemen on the case show signs of drinking harder than usual. One hasn't slept since: just keeps drinking coffee to stay awake. If Viv is sure she wants to see it, he might be able to pull some strings and get her in.").
 clue_known(he_hasnt_seen, false).
 clue(on_that_fateful).
-clue_description(on_that_fateful, "On that fateful night, he had gone to the moving pictures. "Normally, you wouldn't find a quieter convent. I haven't had to stay on the premises all day and night."").
+clue_description(on_that_fateful, "On that fateful night, he had gone to the moving pictures. 'Normally, you wouldn't find a quieter convent. I haven't had to stay on the premises all day and night.'").
 clue_known(on_that_fateful, false).
 clue(other_tenants_in).
 clue_description(other_tenants_in, "Other tenants in the building reported strange sounds. Then someone in Myron Fink's apartment screamed.").
 clue_known(other_tenants_in, false).
 clue(nobody_could_get).
-clue_description(nobody_could_get, "(Pipe, "The Thing in the Morgue") Nobody could get the door open until he came back from the pictures, which wasn't until after midnight. When he opened it, they found Fink dead. "Couldn't have saved him, though, not in a condition that serious." He immediately called the police. Police didn't even bother calling a doctor; coroner took him straight to the morgue.").
+clue_description(nobody_could_get, "(Pipe, 'The Thing in the Morgue') Nobody could get the door open until he came back from the pictures, which wasn't until after midnight. When he opened it, they found Fink dead. 'Couldn't have saved him, though, not in a condition that serious.' He immediately called the police. Police didn't even bother calling a doctor; coroner took him straight to the morgue.").
 clue_known(nobody_could_get, false).
 clue_leads_to(nobody_could_get, the_thing_in_the_morgue).
 clue(he_had_to).
 clue_description(he_had_to, "He had to check on all the tenants. Most inconvenient. Everyone else was accounted for, including Preston. Police didn't take him in that night, but told everyone not to try any funny business. Then Preston doesn't come home, so what's a man to think? Of course he called the police. That's the definition of funny business, after all. Now the police think Preston did it, and why should he contradict them?").
 clue_known(he_had_to, false).
 clue(simpson_reluctantly_admits).
-clue_description(simpson_reluctantly_admits, "(Pipe, "The Thing in the Morgue") Simpson reluctantly admits that nobody can tell yet ex- actly what killed Fink. Not an ordinary weapon, for sure. But even if Preston didn't shoot him, why would he have run if he didn't kill him somehow?").
+clue_description(simpson_reluctantly_admits, "(Pipe, 'The Thing in the Morgue') Simpson reluctantly admits that nobody can tell yet ex- actly what killed Fink. Not an ordinary weapon, for sure. But even if Preston didn't shoot him, why would he have run if he didn't kill him somehow?").
 clue_known(simpson_reluctantly_admits, false).
 clue_leads_to(simpson_reluctantly_admits, the_thing_in_the_morgue).
 clue(preston_wouldnt_answer).
@@ -347,17 +347,17 @@ clue(as_far_as_he).
 clue_description(as_far_as_he, "As far as he knows, Fink and Preston had no bad blood between them. Fink worked as an accountant, paid his rent on time, and kept himself to himself. Until this week, Simpson considered them two of his easier tenants.").
 clue_known(as_far_as_he, false).
 clue(at_first_they).
-clue_description(at_first_they, "(Pipe, "Going on the Grid") At first they worried they were in for a blackout. The power kept flickering but never actually went off. The last time this happened, it was because a drugstore down the street had installed an entire refrigera- tion section in the back which overloaded the grid. (Violet describes this last with the most hand waving; Williams with the least.)").
+clue_description(at_first_they, "(Pipe, 'Going on the Grid') At first they worried they were in for a blackout. The power kept flickering but never actually went off. The last time this happened, it was because a drugstore down the street had installed an entire refrigera- tion section in the back which overloaded the grid. (Violet describes this last with the most hand waving; Williams with the least.)").
 clue_known(at_first_they, false).
 clue_leads_to(at_first_they, going_on_the_grid).
 clue(the_sound_might).
 clue_description(the_sound_might, "The sound might have started as soon as the power began flickering, but they didn't notice it until they got used to the weird light.").
 clue_known(the_sound_might, false).
 clue(everything_stopped_a).
-clue_description(everything_stopped_a, "Everything stopped a moment after Fink screamed. The lights came up to full brightness and the... things... vanished. See "August Wil- liams" below.").
+clue_description(everything_stopped_a, "Everything stopped a moment after Fink screamed. The lights came up to full brightness and the... things... vanished. See 'August Wil- liams' below.").
 clue_known(everything_stopped_a, false).
 clue(anyone_telling_her).
-clue_description(anyone_telling_her, "(Core, "The Thing in the Morgue") Anyone telling her about Fink's body first glances toward Mr. Simpson, if he is present, and lowers their voice to a conspiratorial whisper. Maybe George killed him, but they don't see how, because... he was bitten clean in half! Police couldn't find his midsection or legs anywhere.").
+clue_description(anyone_telling_her, "(Core, 'The Thing in the Morgue') Anyone telling her about Fink's body first glances toward Mr. Simpson, if he is present, and lowers their voice to a conspiratorial whisper. Maybe George killed him, but they don't see how, because... he was bitten clean in half! Police couldn't find his midsection or legs anywhere.").
 clue_known(anyone_telling_her, false).
 clue_leads_to(anyone_telling_her, the_thing_in_the_morgue).
 clue(minnie_lives_in).
@@ -388,7 +388,7 @@ clue(violet_lives_at).
 clue_description(violet_lives_at, "Violet lives at the far end of the hall, nearest the stairs. Assess Honesty gets the sense that, other than the problem with the power, she didn't experience much of what the others describe. Instead, she piggybacks off their statement so people will listen to her. Viv has encountered the type before in her work.").
 clue_known(violet_lives_at, false).
 clue(violet_always_had).
-clue_description(violet_always_had, "Violet always had George figured for the screwy type. Too quiet, always lost in his own world, never really talked to the other tenants. Probably some sort of crazed sex killer, and that's why he took Fink's lower half with him. Viv hardly needs an Interpersonal ability to interpret this as "he never paid attention to me."").
+clue_description(violet_always_had, "Violet always had George figured for the screwy type. Too quiet, always lost in his own world, never really talked to the other tenants. Probably some sort of crazed sex killer, and that's why he took Fink's lower half with him. Viv hardly needs an Interpersonal ability to interpret this as 'he never paid attention to me.'").
 clue_known(violet_always_had, false).
 clue(growing_serious_violet).
 clue_description(growing_serious_violet, "Growing serious, Violet remarks that she's never seen anything like the expression on Fink's face. Like something scared him to death before... you know. She couldn't sleep all that night just thinking about it.").
@@ -518,15 +518,15 @@ challenge_extra_problem(focus_on_the_story_not_the_smile, big_talker).
 challenge(catching_the_would_be_intruder).
 challenge_name(catching_the_would_be_intruder, "Catching the Would-Be Intruder").
 challenge_type(catching_the_would_be_intruder, "athletics").
-challenge_advance(catching_the_would_be_intruder, "6", "You easily get to the stairs before her and force her to talk to you. Invite the player to describe how she gets the jump on Pearl so easily. Move to "Questioning Pearl." Earn an Edge: Edge 2, "Sure-Footed"").
-challenge_hold(catching_the_would_be_intruder, "3", "5", "By the time you catch up to her on the stairs, she's pulled herself together and attempts to grab the schematics you retrieved from Preston's apartment. This may mean snatching your capacious purse or simply wresting the schematics from your hand. Challenge: "Hang onto the Clue."").
+challenge_advance(catching_the_would_be_intruder, "6", "You easily get to the stairs before her and force her to talk to you. Invite the player to describe how she gets the jump on Pearl so easily. Move to 'Questioning Pearl.' Earn an Edge: Edge 2, 'Sure-Footed'").
+challenge_hold(catching_the_would_be_intruder, "3", "5", "By the time you catch up to her on the stairs, she's pulled herself together and attempts to grab the schematics you retrieved from Preston's apartment. This may mean snatching your capacious purse or simply wresting the schematics from your hand. Challenge: 'Hang onto the Clue.'").
 challenge_setback(catching_the_would_be_intruder, "She runs like a gazelle, and you've had a few too many cigarettes lately. She's out the door, and you know you'll never catch her in the maze of alleys.").
 challenge_extra_problem(catching_the_would_be_intruder, wrenched_ankle).
 challenge(hang_onto_the_clue).
 challenge_name(hang_onto_the_clue, "Hang Onto the Clue").
 challenge_type(hang_onto_the_clue, "fighting").
-challenge_advance(hang_onto_the_clue, "7", "Not today, sister! You twist away the schematics while keeping an iron grip on the young woman's wrist. Move to "Questioning Pearl." Earn an Edge: Edge 3, "Pulled it Together"").
-challenge_hold(hang_onto_the_clue, "3", "6", "By the time you catch up to her on the stairs, she's pulled herself together and attempts to grab the schematics you retrieved from Preston's apartment. This may mean snatching your capacious purse or simply wresting the schematics from your hand. Challenge: "Hang onto the Clue."").
+challenge_advance(hang_onto_the_clue, "7", "Not today, sister! You twist away the schematics while keeping an iron grip on the young woman's wrist. Move to 'Questioning Pearl.' Earn an Edge: Edge 3, 'Pulled it Together'").
+challenge_hold(hang_onto_the_clue, "3", "6", "By the time you catch up to her on the stairs, she's pulled herself together and attempts to grab the schematics you retrieved from Preston's apartment. This may mean snatching your capacious purse or simply wresting the schematics from your hand. Challenge: 'Hang onto the Clue.'").
 challenge_setback(hang_onto_the_clue, "She runs like a gazelle, and you've had a few too many cigarettes lately. She's out the door, and you know you'll never catch her in the maze of alleys.").
 challenge_extra_problem(hang_onto_the_clue, wrenched_ankle).
 challenge(antagonist_reaction_1_challenge).
@@ -547,7 +547,7 @@ challenge_extra_problem(antagonist_reaction_1_challenge, no_good_deed).
 :- dynamic(character_name/2).
 :- dynamic(character_goal/2).
 :- dynamic(character_knows/2).
-:- dynamic(character_relationship_with/4).
+:- dynamic(character_relationships/4).
 
 character(sadie_cain).
 character_name(sadie_cain, "Sadie Cain").
@@ -645,13 +645,3 @@ pushes(4).
 :- dynamic(challenge_extra_problem/2).
 
 antagonist_reaction(antagonist_reaction_1).
-
-
-
-overhear_conversation(Char1, Char2, Clue) :-
-    character_relationship_with(Char1, Char2, Relationship, positive). 
-    char_knows_clue(Char1, Clue). 
-
-char_knows_clue(Char, Clue) :-
-    scene_clues(Scene, Clue).
-    scene_characters(Scene, Char).

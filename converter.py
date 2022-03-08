@@ -1,6 +1,8 @@
 import json
 import re
 
+## TODO: Fix issues with converting chunks in description and clue list 
+
 def check_in_item_tag(pred, item, item_type): 
 	if pred in item:
 		fWrite.write( item_type + "(" + str(item[pred]) + ").\n")
@@ -112,7 +114,7 @@ def convert_clues():
 
 	# add in the predicate definitions 
 	fWrite.write(":- dynamic(clue/1).\n")
-	fWrite.write(":- dynamic(clue_desc/2).\n")
+	fWrite.write(":- dynamic(clue_description/2).\n")
 	fWrite.write(":- dynamic(clue_known/2).\n")
 	fWrite.write(":- dynamic(clue_leads_to/2).\n")
 	fWrite.write("\n")
@@ -320,7 +322,7 @@ def convert_characters():
 		check_in_item_arr(data_type, pred, item)
 
 		pred = "relationships"
-		check_in_item_arr_obj(data_type, pred, item)
+		#check_in_item_arr_obj(data_type, pred, item)
 
 def convert_investigative_abilities():
 	# opens the JSON file with the data and saves it to a JSON object
