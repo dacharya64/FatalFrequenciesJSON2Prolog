@@ -1,0 +1,108 @@
+[{
+		"tag": "other_peoples_mail",
+		"name": "Other People's Mail",
+		"type": "filch",
+		"advance": {
+			"threshold": 4,
+			"description": "You successfully purloin the letter. Grants access to alternate scene 'The Psychical Investigator'."
+		},
+		"hold": {
+			"lower_threshold": 2,
+			"upper_threshold": 3,
+			"description": "As your fingers brush the edge of the letter, Fuller makes eye contact and his eyes begin to move downward. If you decide to play it off by deliberately noticing the letter's address, you may spend a Push to convince him you'll give the letter to Preston's fiancée. He demurs to this suggestion, but may later change his mind. Grants access to alternate scene 'The Psychical Investigator'."
+		},
+		"setback": {
+			"description": "Fuller sees you tip the letter into your handbag. After snatching it back, he roughly escorts you out of the building and threatens to call the police if you set foot inside again. If you have not yet spoken to Charlie Fitzpatrick, she follows you onto the street to see if you know something about George."
+		},
+		"extra_problem": "fuller_becomes_suspicious"
+	},
+	{
+		"tag": "focus_on_the_story_not_the_smile",
+		"name": "Focus On The Story, Not The Smile",
+		"type": "cool",
+		"penalty": "-2 with Problem 'Sucker for a Pretty Face'",
+		"advance": {
+			"threshold": 4,
+			"description": "When you interview enough women with charm and grit, you develop immunity to the type. Earn an Edge: Edge 1, 'Ice Queen'"
+		},
+		"hold": {
+			"lower_threshold": 2,
+			"upper_threshold": 3,
+			"description": "Cute and you might even want to buy her a drink sometime, but you've got to treat Charlie like any other source - with a bit of distance and a grain of salt."
+		},
+		"setback": {
+			"description": "She's someone special alright. Whether your heart's beating faster or you're just surprised and impressed by finding her here, you've sure got a soft spot for her. Gain Problem 6, 'Soft Spot'"
+		},
+		"extra_problem": "big_talker"
+	},
+	{
+		"tag": "catching_the_would_be_intruder", 
+		"name": "Catching the Would-Be Intruder", 
+		"type": "athletics", 
+		"advance": {
+			"threshold": 6, 
+			"description": "You easily get to the stairs before her and force her to talk to you. Invite the player to describe how she gets the jump on Pearl so easily. Move to \"Questioning Pearl.\" Earn an Edge: Edge 2, \"Sure-Footed\""
+		}, 
+		"hold": {
+			"lower_threshold": 3, 
+			"upper_threshold": 5, 
+			"description": "By the time you catch up to her on the stairs, she's pulled herself together and attempts to grab the schematics you retrieved from Preston's apartment. This may mean snatching your capacious purse or simply wresting the schematics from your hand. Challenge: \"Hang onto the Clue.\""
+		}, 
+		"setback": {
+			"description": "She runs like a gazelle, and you've had a few too many cigarettes lately. She's out the door, and you know you'll never catch her in the maze of alleys."
+		}, 
+		"extra_problem": "wrenched_ankle"
+	},
+	{
+		"tag": "hang_onto_the_clue", 
+		"name": "Hang Onto the Clue", 
+		"type": "fighting", 
+		"advance": {
+			"threshold": 7, 
+			"description": "Not today, sister! You twist away the schematics while keeping an iron grip on the young woman's wrist. Move to \"Questioning Pearl.\" Earn an Edge: Edge 3, \"Pulled it Together\""
+		}, 
+		"hold": {
+			"lower_threshold": 3, 
+			"upper_threshold": 6, 
+			"description": "By the time you catch up to her on the stairs, she's pulled herself together and attempts to grab the schematics you retrieved from Preston's apartment. This may mean snatching your capacious purse or simply wresting the schematics from your hand. Challenge: \"Hang onto the Clue.\""
+		}, 
+		"setback": {
+			"description": "She runs like a gazelle, and you've had a few too many cigarettes lately. She's out the door, and you know you'll never catch her in the maze of alleys."
+		}, 
+		"extra_problem": "wrenched_ankle"
+	},
+	{
+		"tag": "antagonist_reaction_1_challenge",
+		"type": "cool",
+		"advance": {
+			"threshold": 6,
+			"description": "Gain Edge 11, 'Good Citizen'."
+		},
+		"hold": {
+			"lower_threshold": 2,
+			"upper_threshold": 5,
+			"description": "They accept her argument, but give her the cold shoulder for a few days"
+		},
+		"setback": {
+			"description": "Gain Problem 23, 'Evicted'."
+		},
+		"extra_problem": "no_good_deed"
+	},
+	{
+		"tag": "antagonist_reaction_1_challenge",
+		"type": "cool",
+		"advance": {
+			"threshold": 6,
+			"description": "Gain Edge 11, 'Good Citizen'."
+		},
+		"hold": {
+			"lower_threshold": 2,
+			"upper_threshold": 5,
+			"description": "They accept her argument, but give her the cold shoulder for a few days"
+		},
+		"setback": {
+			"description": "Gain Problem 23, 'Evicted'."
+		},
+		"extra_problem": "no_good_deed"
+	}
+]
