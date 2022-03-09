@@ -25,6 +25,22 @@ def check_in_item_arr(data_type, pred, item):
 		for subitem in array: 
 			fWrite.write( data_type + "_" + pred + "(" + tag + ", " + str(subitem) + ").\n")
 
+def check_in_item_arr_chunk(data_type, pred, item): 
+	#print(item.has(pred))
+	for index, result in enumerate(item["chunks"]):
+		if pred in item["chunks"][index]:
+			array = item["chunks"][index][pred]
+			for subitem in array: 
+				fWrite.write( data_type + "_" + pred + "(" + tag + ", " + str(subitem) + ").\n")
+
+def check_in_item_arr_quotes_chunk(data_type, pred, item): 
+	#print(item.has(pred))
+	for index, result in enumerate(item["chunks"]):
+		if pred in item["chunks"][index]:
+			array = item["chunks"][index][pred]
+			for subitem in array: 
+				fWrite.write( data_type + "_" + pred + "(" + tag + ", \"" + str(subitem) + "\").\n")
+
 def check_in_item_arr_obj(data_type, pred, item): 
 	if pred in item:
 		array = item[pred]
@@ -95,11 +111,11 @@ def convert_scenes():
 		pred = "lead_outs"
 		check_in_item_arr(data_type, pred, item)
 
-		pred = "description"
-		check_in_item_arr_quotes(data_type, pred, item)
+		pred = "text"
+		check_in_item_arr_quotes_chunk(data_type, pred, item)
 
 		pred = "clues"
-		check_in_item_arr(data_type, pred, item)
+		check_in_item_arr_chunk(data_type, pred, item)
 
 		pred = "characters"
 		check_in_item_arr(data_type, pred, item)
