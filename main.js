@@ -76,11 +76,15 @@ function overhear_conversation() {
 	clear_output_area();
 	output_area.innerHTML = "";
 	var get_all_bindings = function(answers) {
-		console.log(answers);
-		print(answers);	
+		for (var i = 0; i < answers.length; i++) {
+    		var answer = answers[i];
+    		var result_name = answer.lookup("Char1Name");
+    		var result_clue = answer.lookup("ClueDesc");
+    		output_area.innerHTML = output_area.innerHTML + result_name + " tells secret: " + result_clue + "<br>";
+		}	
 	}
 
-	session.query("overhear_conversation(Char1, Char2, Clue, ClueDesc).");
+	session.query("overhear_conversation(Char1, Char1Name, Char2, Clue, ClueDesc).");
 	session.answers(get_callback(get_all_bindings));
 }
 
