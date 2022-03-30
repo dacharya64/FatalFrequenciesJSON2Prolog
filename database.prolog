@@ -795,11 +795,17 @@ character(sadie_cain).
 character_name(sadie_cain, "Sadie Cain").
 character_goal(sadie_cain, "Find missing fiance").
 character_knows(sadie_cain, george_preston).
+character_relationships(sadie_cain, george_preston, "engaged", positive).
 character(george_preston).
 character_name(george_preston, "George Preston").
 character_knows(george_preston, sadie_cain).
 character_knows(george_preston, howard_fuller).
 character_knows(george_preston, charlie_fitzpatrick).
+character_relationships(george_preston, marty_the_mouth, "owes money to", negative).
+character_relationships(george_preston, charlie_fitzpatrick, "friends", positive).
+character_relationships(george_preston, hereward_carrington, "corresponds with", positive).
+character_relationships(george_preston, madame_isis, "potential acolyte of", positive).
+character_relationships(george_preston, clarence_simpson, "rents from", neutral).
 character(charlie_fitzpatrick).
 character_name(charlie_fitzpatrick, "Charlie (Charlene) Fitzpatrick").
 character_knows(charlie_fitzpatrick, george_preston).
@@ -809,12 +815,16 @@ character_name(howard_fuller, "Howard Fuller").
 character_knows(howard_fuller, george_preston).
 character_knows(howard_fuller, charlie_fitzpatrick).
 character_knows(howard_fuller, petunia_adams).
+character_relationships(howard_fuller, george_preston, "boss of, killer of", negative).
+character_relationships(howard_fuller, charlie_fitzpatrick, "boss of", neutral).
+character_relationships(howard_fuller, petunia_adams, "boss of", neutral).
 character(clarence_simpson).
 character_name(clarence_simpson, "Clarence Simpson").
 character_knows(clarence_simpson, george_preston).
 character(pearl_leblanc).
 character_name(pearl_leblanc, "Pearl LeBlanc").
 character_knows(pearl_leblanc, madame_isis).
+character_relationships(pearl_leblanc, madame_isis, "devotee of", positive).
 character(madame_isis).
 character_name(madame_isis, "Madame Isis Neferi").
 character_knows(madame_isis, pearl_leblanc).
@@ -828,6 +838,7 @@ character_knows(marty_the_mouth, george_preston).
 character(addie_sims).
 character_name(addie_sims, "Addie Sims").
 character_knows(addie_sims, madame_isis).
+character_relationships(addie_sims, madame_isis, "seeking answers from", positive).
 character(petunia_adams).
 character_name(petunia_adams, "Petunia Adams").
 character_knows(petunia_adams, howard_fuller).
@@ -853,37 +864,13 @@ character_name(myron_fink, "Myron Fink").
 character_knows(myron_fink, george_preston).
 
 
-:- dynamic(investigative_ability/4).
+overhear_conversation(Char1, Char2, Clue, ClueDesc) :-
+	character_relationships(Char1, Char2, Relationship, positive) ;
+    character_relationship_with(Char1, Char2, Relationship, positive); 
+    char_knows_clue(Char1, Clue). 
 
-investigative_ability(accounting, "Accounting", "You understand bookkeeping and accountancy procedures; you can read and keep financial records.", academic).
-
-
-:- dynamic(general_ability/4).
-
-general_ability(athletics, "Athletics", "Athletics allows you to perform general acts of physical derring-do, from running to jumping to throwing bundles of dynamite to dodging oncoming objects.", physical).
-
-
-:- dynamic(player_edge/1).
-:- dynamic(player_problem/1).
-:- dynamic(player_investigative_ability/1).
-:- dynamic(player_general_ability/2).
-:- dynamic(player_pushes/1).
-:- dynamic(player_item/1).
-
-player_edge(ice_queen).
-player_problem(sucker_for_a_pretty_face).
-player_investigative_ability(accounting).
-player_investigative_ability(assess_honesty).
-player_general_ability(athletics, 1).
-pushes(4).
-
-
-:- dynamic(antagonist_reaction/1).
-:- dynamic(challenge_name/2).
-:- dynamic(challenge_type/2).
-:- dynamic(challenge_advance/3).
-:- dynamic(challenge_hold/4).
-:- dynamic(challenge_setback/2).
-:- dynamic(challenge_extra_problem/2).
-
-antagonist_reaction(antagonist_reaction_1).
+char_knows_clue(CharTag, CharName, ClueTag, ClueDesc, Scene) :-
+	clue_description(ClueTag, ClueDesc),
+	character_name(CharTag, CharName),
+    scene_clues(Scene, ClueTag),
+    scene_characters(Scene, CharTag).

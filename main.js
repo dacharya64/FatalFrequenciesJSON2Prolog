@@ -1,6 +1,6 @@
 // Create the prolog sesssion and load mini_prom_week_example.prolog.
 session = pl.create();
-session.consult("prolog_database.prolog");
+session.consult("database.prolog");
 
 // Array of variable bindings, one per answer, returned by prolog query
 var bindings = [];
@@ -29,16 +29,22 @@ function get_callback(funcWhenDone)
 	return callbackFunc;
 } 
 
-//display_all_scenes(); 
+function clear_output_area() {
+	output_area.innerHTML = "";
+	bindings = [];
+}
 
 function display_all_scenes() {
-	output_area.innerHTML = "";
+	clear_output_area();
 	var get_all_bindings = function(answers) {
-		console.log(answers);
-		print(answers);	
+		for (var i = 0; i < answers.length; i++) {
+    		var answer = answers[i];
+    		var result_name = answer.lookup("Name");
+    		output_area.innerHTML = output_area.innerHTML + result_name + "<br>";
+		}	
 	}
 
-	session.query("scene(Name).");
+	session.query("scene_name(Tag, Name).");
 	session.answers(get_callback(get_all_bindings));
 }
 
@@ -49,27 +55,45 @@ function print(answers) {
 	}
 }
 
-
 function char_knows_clue() {
+	clear_output_area();
 	output_area.innerHTML = "";
 	var get_all_bindings = function(answers) {
 		console.log(answers);
-		print(answers);	
+		for (var i = 0; i < answers.length; i++) {
+    		var answer = answers[i];
+    		var result_name = answer.lookup("CharName");
+    		var result_clue = answer.lookup("ClueDesc");
+    		output_area.innerHTML = output_area.innerHTML + result_name + " knows the clue: " + result_clue + "<br>";
+		}	
 	}
 
-	session.query("char_knows_clue(Char, Clue).");
+	session.query("char_knows_clue(CharTag, CharName, ClueTag, ClueDesc, Scene).");
 	session.answers(get_callback(get_all_bindings));
 }
 
-
-
 function overhear_conversation() {
+	clear_output_area();
 	output_area.innerHTML = "";
 	var get_all_bindings = function(answers) {
 		console.log(answers);
 		print(answers);	
 	}
 
-	session.query("overhear_conversation(Char1, Char2, Clue).");
+	session.query("overhear_conversation(Char1, Char2, Clue, ClueDesc).");
+	session.answers(get_callback(get_all_bindings));
+}
+
+function display_all_clues() {
+	clear_output_area();
+	var get_all_bindings = function(answers) {
+		for (var i = 0; i < answers.length; i++) {
+    		var answer = answers[i];
+    		var result_name = answer.lookup("Desc");
+    		output_area.innerHTML = output_area.innerHTML + result_name + "<br>";
+		}	
+	}
+
+	session.query("clue_description(Tag, Desc).");
 	session.answers(get_callback(get_all_bindings));
 }

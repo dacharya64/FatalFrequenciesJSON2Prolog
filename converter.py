@@ -46,10 +46,16 @@ def check_in_item_arr_obj(data_type, pred, item):
 		array = item[pred]
 		for subitem in array: 
 			obj = subitem
+			#print(tag)
 			result_string = data_type + "_" + pred + "(" + tag
 			for obj_part in obj: 
-				result_string = result_string + ", " +  str(obj[obj_part]) 
+				print(obj_part)
+				if (obj_part == "relationship"):
+					result_string = result_string + ", " + "\"" + str(obj[obj_part]) + "\""
+				else: 
+					result_string = result_string + ", " +  str(obj[obj_part]) 
 			result_string = result_string + ").\n"
+			#print(result_string)
 			fWrite.write(result_string)
 
 def check_in_item_obj(data_type, pred, item): 
@@ -338,7 +344,7 @@ def convert_characters():
 		check_in_item_arr(data_type, pred, item)
 
 		pred = "relationships"
-		#check_in_item_arr_obj(data_type, pred, item)
+		check_in_item_arr_obj(data_type, pred, item)
 
 def convert_investigative_abilities():
 	# opens the JSON file with the data and saves it to a JSON object
