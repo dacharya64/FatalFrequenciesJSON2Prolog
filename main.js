@@ -79,12 +79,13 @@ function overhear_conversation() {
 		for (var i = 0; i < answers.length; i++) {
     		var answer = answers[i];
     		var result_name = answer.lookup("Char1Name");
+    		var result_name2 = answer.lookup("Char2Name");
     		var result_clue = answer.lookup("ClueDesc");
-    		output_area.innerHTML = output_area.innerHTML + result_name + " tells secret: " + result_clue + "<br>";
+    		output_area.innerHTML = output_area.innerHTML + result_name + " tells secret to " + result_name2 + ": " + result_clue + "<br>";
 		}	
 	}
 
-	session.query("overhear_conversation(Char1, Char1Name, Char2, Clue, ClueDesc).");
+	session.query("overhear_conversation(Char1, Char1Name, Char2, Char2Name, Clue, ClueDesc).");
 	session.answers(get_callback(get_all_bindings));
 }
 
