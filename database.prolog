@@ -790,12 +790,14 @@ challenge_extra_problem(antagonist_reaction_1_challenge, no_good_deed).
 :- dynamic(character_goal/2).
 :- dynamic(character_knows/2).
 :- dynamic(character_relationships/4).
+:- dynamic(character_relationship_with_player/2).
 
 character(sadie_cain).
 character_name(sadie_cain, "Sadie Cain").
 character_goal(sadie_cain, "Find missing fiance").
 character_knows(sadie_cain, george_preston).
 character_relationships(sadie_cain, george_preston, "engaged", positive).
+character_relationships(sadie_cain, player, "client", positive).
 character(george_preston).
 character_name(george_preston, "George Preston").
 character_knows(george_preston, sadie_cain).
@@ -875,3 +877,11 @@ char_knows_clue(CharTag, CharName, ClueTag, ClueDesc, Scene) :-
 	character_name(CharTag, CharName),
     scene_clues(Scene, ClueTag),
     scene_characters(Scene, CharTag).
+
+find_new_lead(Clue, Scene) :- 
+    clue_known(Clue, false).
+    clue_leads_to(Clue, Lead).
+    scene_visited(Lead, false).
+
+find_hostage_options(Char) :- 
+    character_relationships(Char, player, Relationship, positive).

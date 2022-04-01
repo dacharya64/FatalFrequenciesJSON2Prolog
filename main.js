@@ -102,3 +102,33 @@ function display_all_clues() {
 	session.query("clue_description(Tag, Desc).");
 	session.answers(get_callback(get_all_bindings));
 }
+
+function find_new_lead() {
+	clear_output_area();
+	var get_all_bindings = function(answers) {
+		for (var i = 0; i < answers.length; i++) {
+			output_area.innerHTML = output_area.innerHTML + answer + "<br>";
+    		var answer = answers[i];
+    		var result_name = answer.lookup("Clue");
+    		output_area.innerHTML = output_area.innerHTML + result_name + "<br>";
+		}	
+	}
+
+	session.query("find_new_lead(Clue, Scene).");
+	session.answers(get_callback(get_all_bindings));
+}
+
+function find_hostage_options() {
+	clear_output_area();
+	var get_all_bindings = function(answers) {
+		for (var i = 0; i < answers.length; i++) {
+			output_area.innerHTML = output_area.innerHTML + answer + "<br>";
+    		var answer = answers[i];
+    		var result_name = answer.lookup("Char");
+    		output_area.innerHTML = output_area.innerHTML + result_name + "<br>";
+		}	
+	}
+
+	session.query("find_hostage_options(Char).");
+	session.answers(get_callback(get_all_bindings));
+}

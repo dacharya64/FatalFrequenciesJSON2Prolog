@@ -12,6 +12,11 @@
 			"character": "george_preston",
 			"relationship": "engaged",
 			"valence": "positive"
+		}, 
+		{
+			"character": "player", 
+			"relationship": "client",
+			"valence": "positive"
 		}]
 	},
 	{
