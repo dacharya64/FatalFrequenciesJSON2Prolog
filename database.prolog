@@ -924,6 +924,5 @@ find_hostage_options(Char) :-
 
 find_physical_injury(Challenge, ExtraProblem) :- 
     challenge_type(Challenge, Type),
-    general_ability_name(Type),
-    general_ability_type(physical),
+    general_ability(Type, Name, Description, physical),
     challenge_extra_problem(Challenge, ExtraProblem).

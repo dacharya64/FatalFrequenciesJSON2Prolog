@@ -121,7 +121,6 @@ function find_hostage_options() {
 	clear_output_area();
 	var get_all_bindings = function(answers) {
 		for (var i = 0; i < answers.length; i++) {
-			output_area.innerHTML = output_area.innerHTML + answer + "<br>";
     		var answer = answers[i];
     		var result_name = answer.lookup("Char");
     		output_area.innerHTML = output_area.innerHTML + result_name + "<br>";
@@ -136,7 +135,6 @@ function find_physical_injury() {
 	clear_output_area();
 	var get_all_bindings = function(answers) {
 		for (var i = 0; i < answers.length; i++) {
-			output_area.innerHTML = output_area.innerHTML + answer + "<br>";
     		var answer = answers[i];
     		var result_name = answer.lookup("ExtraProblem");
     		output_area.innerHTML = output_area.innerHTML + result_name + "<br>";
