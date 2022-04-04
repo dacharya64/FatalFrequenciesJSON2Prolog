@@ -107,14 +107,13 @@ function find_new_lead() {
 	clear_output_area();
 	var get_all_bindings = function(answers) {
 		for (var i = 0; i < answers.length; i++) {
-			output_area.innerHTML = output_area.innerHTML + answer + "<br>";
     		var answer = answers[i];
-    		var result_name = answer.lookup("Clue");
+    		var result_name = answer.lookup("ClueDesc");
     		output_area.innerHTML = output_area.innerHTML + result_name + "<br>";
 		}	
 	}
 
-	session.query("find_new_lead(Clue, Scene).");
+	session.query("find_new_lead(Clue, ClueDesc, Scene, SceneName).");
 	session.answers(get_callback(get_all_bindings));
 }
 
@@ -130,5 +129,20 @@ function find_hostage_options() {
 	}
 
 	session.query("find_hostage_options(Char).");
+	session.answers(get_callback(get_all_bindings));
+}
+
+function find_physical_injury() {
+	clear_output_area();
+	var get_all_bindings = function(answers) {
+		for (var i = 0; i < answers.length; i++) {
+			output_area.innerHTML = output_area.innerHTML + answer + "<br>";
+    		var answer = answers[i];
+    		var result_name = answer.lookup("ExtraProblem");
+    		output_area.innerHTML = output_area.innerHTML + result_name + "<br>";
+		}	
+	}
+
+	session.query("find_physical_injury(Challenge, ExtraProblem).");
 	session.answers(get_callback(get_all_bindings));
 }

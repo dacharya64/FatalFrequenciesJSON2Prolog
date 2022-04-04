@@ -10,17 +10,18 @@ char_knows_clue(CharTag, CharName, ClueTag, ClueDesc, Scene) :-
     scene_clues(Scene, ClueTag),
     scene_characters(Scene, CharTag).
 
-find_new_lead(Clue, Scene) :- 
-    clue_known(Clue, false).
-    clue_leads_to(Clue, Lead).
-    scene_visited(Lead, false).
+find_new_lead(Clue, ClueDesc, Scene, SceneName) :- 
+    clue_known(Clue, false),
+    clue_description(Clue, ClueDesc),
+    clue_leads_to(Clue, Scene),
+    scene_name(Scene, SceneName),
+    scene_visited(Scene, false).
 
 find_hostage_options(Char) :- 
     character_relationships(Char, player, Relationship, positive).
 
-find_physical_injury(Challenge) :- 
-    challenge_type(Challenge, Type).
-    general_ability_name(Type).
-    general_ability_type(physical).
+find_physical_injury(Challenge, ExtraProblem) :- 
+    challenge_type(Challenge, Type),
+    general_ability_name(Type),
+    general_ability_type(physical),
     challenge_extra_problem(Challenge, ExtraProblem).
-    

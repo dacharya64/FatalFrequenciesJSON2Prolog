@@ -44,19 +44,18 @@ def check_in_item_arr_quotes_chunk(data_type, pred, item):
 def check_in_item_arr_obj(data_type, pred, item): 
 	if pred in item:
 		array = item[pred]
+
 		for subitem in array: 
-			obj = subitem
-			#print(tag)
-			result_string = data_type + "_" + pred + "(" + tag
-			for obj_part in obj: 
-				print(obj_part)
-				if (obj_part == "relationship"):
-					result_string = result_string + ", " + "\"" + str(obj[obj_part]) + "\""
-				else: 
-					result_string = result_string + ", " +  str(obj[obj_part]) 
-			result_string = result_string + ").\n"
-			#print(result_string)
-			fWrite.write(result_string)
+			if isinstance(subitem, dict):
+				obj = subitem
+				result_string = data_type + "_" + pred + "(" + tag
+				for obj_part in obj: 
+					if (obj_part == "relationship"):
+						result_string = result_string + ", " + "\"" + obj[obj_part] + "\""
+					else: 
+						result_string = result_string + ", " + obj[obj_part]
+				result_string = result_string + ").\n"
+				fWrite.write(result_string)
 
 def check_in_item_obj(data_type, pred, item): 
 	if pred in item:
@@ -374,8 +373,9 @@ def convert_general_abilities():
 	for item in data:
 		pred = "tag" 
 		global tag 
-
-		result_string = "general_ability(" + str(item["tag"]) + ", \"" +  str(item["general_ability_name"]) + "\", \"" + str(item["general_ability_description"]) + "\", " + str(item["general_ability_type"]) + ")."
+		print(item)
+		result_string = "general_ability(" + str(item["tag"]) + ", \"" +  str(item["name"]) + "\", \"" + str(item["description"]) + "\", " + str(item["type"]) + ")."
+		print(result_string)
 		fWrite.write(result_string + "\n")
 
 def convert_player_character():

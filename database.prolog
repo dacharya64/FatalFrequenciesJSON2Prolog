@@ -790,7 +790,6 @@ challenge_extra_problem(antagonist_reaction_1_challenge, no_good_deed).
 :- dynamic(character_goal/2).
 :- dynamic(character_knows/2).
 :- dynamic(character_relationships/4).
-:- dynamic(character_relationship_with_player/2).
 
 character(sadie_cain).
 character_name(sadie_cain, "Sadie Cain").
@@ -866,6 +865,41 @@ character_name(myron_fink, "Myron Fink").
 character_knows(myron_fink, george_preston).
 
 
+:- dynamic(investigative_ability/4).
+
+investigative_ability(accounting, "Accounting", "You understand bookkeeping and accountancy procedures; you can read and keep financial records.", academic).
+
+
+:- dynamic(general_ability/4).
+
+general_ability(athletics, "Athletics", "Athletics allows you to perform general acts of physical derring-do, from running to jumping to throwing bundles of dynamite to dodging oncoming objects.", physical).
+
+
+:- dynamic(player_edge/1).
+:- dynamic(player_problem/1).
+:- dynamic(player_investigative_ability/1).
+:- dynamic(player_general_ability/2).
+:- dynamic(player_pushes/1).
+:- dynamic(player_item/1).
+
+player_edge(ice_queen).
+player_problem(sucker_for_a_pretty_face).
+player_investigative_ability(accounting).
+player_investigative_ability(assess_honesty).
+player_general_ability(athletics, 1).
+pushes(4).
+
+
+:- dynamic(antagonist_reaction/1).
+:- dynamic(challenge_name/2).
+:- dynamic(challenge_type/2).
+:- dynamic(challenge_advance/3).
+:- dynamic(challenge_hold/4).
+:- dynamic(challenge_setback/2).
+:- dynamic(challenge_extra_problem/2).
+
+antagonist_reaction(antagonist_reaction_1).
+
 overhear_conversation(Char1, Char1Name, Char2, Char2Name, Clue, ClueDesc) :-
 	character_relationships(Char1, Char2, Relationship, positive),
 	character_name(Char1, Char1Name),
@@ -878,10 +912,18 @@ char_knows_clue(CharTag, CharName, ClueTag, ClueDesc, Scene) :-
     scene_clues(Scene, ClueTag),
     scene_characters(Scene, CharTag).
 
-find_new_lead(Clue, Scene) :- 
-    clue_known(Clue, false).
-    clue_leads_to(Clue, Lead).
-    scene_visited(Lead, false).
+find_new_lead(Clue, ClueDesc, Scene, SceneName) :- 
+    clue_known(Clue, false),
+    clue_description(Clue, ClueDesc),
+    clue_leads_to(Clue, Scene),
+    scene_name(Scene, SceneName),
+    scene_visited(Scene, false).
 
 find_hostage_options(Char) :- 
     character_relationships(Char, player, Relationship, positive).
+
+find_physical_injury(Challenge, ExtraProblem) :- 
+    challenge_type(Challenge, Type),
+    general_ability_name(Type),
+    general_ability_type(physical),
+    challenge_extra_problem(Challenge, ExtraProblem).
